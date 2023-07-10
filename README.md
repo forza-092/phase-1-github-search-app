@@ -1,74 +1,65 @@
-# GitHub Search App
+# TRENDING MOVIE FILMS
+* A web application that displays a list of trending movies. Users can search for movies by title and optionally specify a year. The application provides movie details such as runtime, capacity, showtime, tickets sold, and a brief description.
 
-## Learning Goals
+# MOVIE LISTING # (Sub-title)
 
-- Practice accessing information from APIs and using it to update the DOM
-- Practice listening for user events and updating the DOM in response
+# Features
 
-## Instructions
+* Display a list of trending movies with their details.
+* Search for movies by title and optionally specify a year.
+* Automatically update the movie listings based on the search criteria.
+* Clear the search form after submission.
 
-You will be using the GitHub API for this project. You can view documentation
-for this API [here](https://developer.github.com/v3/). This is an open API: no
-API key or authentication is required for the endpoints we will be using.
+# Technologies Used;
 
-Notice the GitHub API documentation includes the following excerpt:
+HTML
+CSS
+JavaScript
 
-> By default, all requests to <https://api.github.com> receive the v3 version of
-> the REST API. We encourage you to explicitly request this version via the
-> Accept header.
+# Usage
 
-They require you to add a custom header to your requests:
+* Clone the repository:
+bash-Copy code
+(git clone <repository_url>)
+* Open the index.html file in a web browser.
+* In the web application, you will see a list of trending movies.
+* To search for a movie, enter the movie title and optionally the year in the search form.
+* Click the "Submit" button to perform the search.
+* The movie listings will be updated to display the search results matching the provided criteria.
+* The input fields will be cleared for the next search.
 
-```text
-Accept: application/vnd.github.v3+json
-```
+# Data Structure
 
-### [User Search Endpoint](https://developer.github.com/v3/search/#search-users)
+* The movie data is stored in the movies array in JavaScript. Each movie object has the following properties:
 
-You can search for users matching a certain name. For example, if we wanted to
-find all users named `octocat`, we would make a `GET` request to
-`https://api.github.com/search/users?q=octocat`. To view the response, you can
-copy and paste that URL into your browser.
+-> id (string): Unique identifier for the movie.
+-> title (string): The title of the movie.
+-> runtime (string): The duration of the movie in minutes.
+-> capacity (number): The maximum capacity of the movie theater.
+-> showtime (string): The time at which the movie is being shown.
+-> tickets_sold (number): The number of tickets sold for the movie.
+-> description (string): A brief description of the movie.
+-> poster (string): URL of the movie poster image.
 
-This endpoint is rate limited. This means the API will stop returning data if
-you make more than
-[10 requests per minute](https://developer.github.com/v3/search/#rate-limit).
+# Functionality
 
-### [User Repos Endpoint](https://developer.github.com/v3/repos/#list-user-repositories)
+* The searchMovies function filters the movies array based on the search criteria provided (movie title and optional year). It performs a case-insensitive search by checking if the movie title includes the search query.
+* The renderMovieListings function generates the HTML for the movie listings based on the filtered movies. It updates the movie list container with the generated HTML.
+* The search form event listener listens for form submission. It retrieves the search input values, performs the movie search using searchMovies, and updates the movie listings with renderMovieListings.
+* The initial rendering of movie listings is done by calling renderMovieListings with the complete movies array.
 
-You can find all the public repositories for a user using this endpoint. For
-example if we wanted to find all the repositories for a user with GitHub
-username `octocat`, we would make a `GET` request to
-`https://api.github.com/users/octocat/repos`. To view the response, you can copy
-and paste that URL into your browser.
+# License
 
-This endpoint is rate limited. This endpoint will stop returning data if you
-make more than
-[60 requests in an hour](https://developer.github.com/v3/#rate-limiting).
+MIT License
 
-## Deliverables
+Copyright (c) 2023 <NAME> Stephan Maina Ndung'u.
 
-You are going to build a JavaScript application which searches GitHub for users
-by name and displays the results on the screen. Clicking on a specific user will
-show all the repositories for that user.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-1. The `index.html` file has a form with a search input. When the form is
-   submitted, it should take the value of the input and search GitHub for user
-   matches using the [User Search Endpoint](#user-search-endpoint).
-2. Using the results of the search, display information about the users to the
-   page. (You might include showing their username, avatar and a link to their
-   profile.)
-3. Clicking on one of these users should send a request to the
-   [User Repos Endpoint](#user-repos-endpoint) and return data about all the
-   repositories for that user.
-4. Using the response from the Users Repos Endpoint, display all the
-   repositories for that user on the page.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-## Bonus
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-- Toggle the search bar between searching for users by keyword and searching for
-  repos by keyword by adding an extra button. Hint: you can use the same search
-  bar for this, but you may need to create a variable which stores what the
-  current search type is (user or repo). The endpoint to search repositories by
-  keyword is
-  [here](https://developer.github.com/v3/search/#search-repositories).
+Thank you all who will observe this........
